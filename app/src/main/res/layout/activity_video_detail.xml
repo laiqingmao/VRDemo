@@ -1,84 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:id="@+id/video_detail"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:background="@color/white" >
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical" >
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="这是标题"/>
 
-            <LinearLayout
-                android:id="@+id/control_bar"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:orientation="horizontal"
-                android:padding="2dip" >
+        <ImageView
+            android:id="@+id/detail_img_view"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/black"
+            android:clickable="true"
+            android:contentDescription="@string/play"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/pictures_no"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_text"
+            tools:layout_editor_absoluteX="8dp"/>
 
-                <TextView
-                    android:id="@+id/title_text"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dip"
-                    android:text=""
-                    android:textSize="16sp" />
-            </LinearLayout>
+        <TextView
+            android:id="@+id/video_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/semitransparent_light"
+            android:padding="8dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/detail_img_view"
+            tools:text="视频"/>
 
+        <ImageButton
+            android:id="@+id/play_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#22222222"
+            android:contentDescription="@string/play_voice"
+            android:gravity="center"
+            android:src="@drawable/mediacontroller_play_button"
+            app:layout_constraintBottom_toBottomOf="@+id/detail_img_view"
+            app:layout_constraintLeft_toLeftOf="@+id/detail_img_view"
+            app:layout_constraintRight_toRightOf="@+id/detail_img_view"
+            app:layout_constraintTop_toTopOf="@+id/detail_img_view"/>
 
-            <RelativeLayout
+        <TextView
+            android:id="@+id/detail_text"
+            android:layout_width="368dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:textColor="@color/gray_less_light"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_img_view"/>
 
-                android:layout_margin="4dp"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="@color/gray_lighter"
-                android:orientation="horizontal" >
-                <ImageView
-                    android:id="@+id/detail_img_view"
-                    android:background="@color/black"
-                    android:layout_width="match_parent"
-                    android:scaleType="centerCrop"
-                    android:clickable="true"
-                    android:layout_height="200dp"
-                    android:src="@mipmap/pictures_no"/>
-                <TextView
-                    android:id="@+id/video_type"
-                    android:padding="8dp"
-                    android:textStyle="bold"
-                    android:background="@color/semitransparent_light"
-                    android:text="视频"
-                    android:textColor="@color/white"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <ImageButton
-                    android:id="@+id/play_link"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-
-                    android:background="#22222222"
-                    android:contentDescription="播放语音"
-                    android:gravity="center"
-                    android:src="@drawable/mediacontroller_play_button" />
-            </RelativeLayout>
-
-            <TextView
-                android:id="@+id/detail_text"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dip"
-                android:textColor="@color/gray_less_light"
-                android:textSize="16sp" />
-
-
-        </LinearLayout>
-    </ScrollView>
-
-</FrameLayout>
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

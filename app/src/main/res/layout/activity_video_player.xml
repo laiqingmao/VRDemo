@@ -1,21 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@android:color/white"
-              android:orientation="vertical">
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
 
     <com.google.vr.sdk.widgets.video.VrVideoView
         android:id="@+id/vr_video"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"></com.google.vr.sdk.widgets.video.VrVideoView>
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <SeekBar
         android:id="@+id/seek_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vr_video"/>
+
     <TextView
         android:id="@+id/tv_progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="当前进度:"/>
-</LinearLayout>
+        app:layout_constraintLeft_toLeftOf="@id/seek_bar"
+        app:layout_constraintTop_toBottomOf="@+id/seek_bar"
+        tools:text="当前进度:"/>
+
+</android.support.constraint.ConstraintLayout>
